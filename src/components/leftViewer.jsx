@@ -18,8 +18,8 @@ const CloudsContainer = styled.div`
   height: 45.5vh;;
   width: 100%;
   background: url('./assets/img/Cloud-background.png') no-repeat center center;
-  background-size: 160% 85%;
-  opacity: 0.27;
+  background-size: 150% 95%;
+  opacity: 0.1;
 `;
 
 const ButtomsContainer = styled.div`
@@ -95,7 +95,7 @@ const WeatherText = styled.div`
 const WeatherDeg = styled.span`
   color: #E7E7EB;
   font-family: Raleway;
-  font-size: 134px;
+  font-size: 100px;
   font-style: normal;
   font-weight: 500; 
 `;
@@ -103,9 +103,10 @@ const WeatherDeg = styled.span`
 const WeatherDegType = styled.span`
   color: #A09FB1;
   font-family: Raleway;
-  font-size: 38px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 500; 
+  margin-top:50px;
 `;
 
 const WeatherInfo = styled.div`
@@ -120,7 +121,7 @@ const WeatherInfoText = styled.span`
   color: #A09FB1;
   text-align: center;
   font-family: Raleway;
-  font-size: 26px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 600; 
 `;
@@ -183,7 +184,16 @@ const LeftViewer = () => {
             Search for places
           </BtnText>
         </ButtonPlaces>
-        <ButtonSearch>
+        <ButtonSearch onClick={
+          ()=>{
+            if(!navigator.geolocation){}else{
+              navigator.geolocation.getCurrentPosition((position)=>{
+                console.log(position);
+              });
+            }
+           
+          }
+        }>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
           </ButtonSearchIcon>        
