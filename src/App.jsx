@@ -1,6 +1,7 @@
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import LeftViewer  from './components/LeftViewer';
+import LeftViewer from './components/LeftViewer';
 import LocationSearchView from './components/LocationSearchView';
 
 const AppCont = styled.div`
@@ -10,28 +11,21 @@ const AppCont = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
   position: relative;
-  
 `;
 
-const StyledLefViewer = styled(LeftViewer)`
-  width: 100%;
-  min-height: 100vh;
-  top:0;
-  left:0;
+const App = () => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-`;
+  const toggleSearchView = () => {
+    setIsSearchOpen((prevState) => !prevState);
+  };
 
-
-
-const App = ()=>{
-
-  
   return (
     <AppCont>
-      <LocationSearchView/>
-      <StyledLefViewer/>
+      {isSearchOpen && <LocationSearchView toggleSearchView={toggleSearchView} />}
+      <LeftViewer toggleSearchView={toggleSearchView} />
     </AppCont>
   );
-}
+};
 
 export default App;

@@ -1,18 +1,29 @@
 import React from "react";
 import styled from "styled-components";
-import { useFetch } from "../hooks/UseFetch";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import cityData from '../data/city.list.min.json';
 
 const Container = styled.div`
   display: inline-block;
-  width: 25%;
+  width: 100%;
   max-height: 100vh;
   background: #1e213a;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
+
+    &.close {
+        transform: translateX(-100%);
+        transition: transform 1s ease-out;
+    }
+
+    &.open {
+        transform: translateX(0%);
+        transition: transform 1s ease-out;
+    }
+
+ 
 `;
 
 const SearchContainer = styled.div`
@@ -57,6 +68,11 @@ const CloseButton = styled.div`
   height: 60%;
   margin-right: 30px;
   margin-top: 10px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 `;
 
 const SearchFieldIcon = styled.div`
@@ -105,6 +121,12 @@ const SearchButton = styled.button`
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
 `;
 
 const ResultsContainer = styled.div`
@@ -208,6 +230,8 @@ const ListItem = styled.li`
 `;
 
 const CitiesGetter = (search, data) => {
+
+    if(!search.isEmpty){
   const dataFormated = data?.map((city) => {
     let cityFormated = city.name.toLowerCase();
     cityFormated = cityFormated.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
@@ -217,41 +241,47 @@ const CitiesGetter = (search, data) => {
   return dataFormated.filter((city) =>
     city.name.includes(search.toLowerCase())
   );
+}else{
+    return [];
+}
 };
 
 
-const LocationSearchView = () => {
-  /*const { data } = useFetch(
-    "https://countriesnow.space/api/v0.1/countries/population/cities"
-  );*/
 
-  const [data, setData] = useState(cityData);
+ 
+const LocationSearchView = ({ isOpen, toggleSearchView }) => {
+  const [data] = useState(cityData);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setResults(CitiesGetter(search, data));
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <Container>
+    <Container 
+    className={isOpen ? "open" : "close"} >
       <SearchContainer>
         <CloseSection>
-          <CloseButton>X</CloseButton>
+          <CloseButton onClick={toggleSearchView}>X</CloseButton>
         </CloseSection>
         <SearchSection>
-          <SearchForm
-            onSubmit={(e) => {
-              e.preventDefault();
-              setResults(CitiesGetter(search, data));
-            }}
-          >
+          <SearchForm onSubmit={handleSearch}>
             <SearchFieldIcon> 
               <SearchIcon className="material-icons">search</SearchIcon>
               <SearchField
-                type="text"
-                placeholder="search location"
-                name="search"
-                autoComplete="off"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
+            type="text"
+            placeholder="search location"
+            name="search"
+            autoComplete="off"
+            value={search}
+            onChange={handleSearchInputChange}
+          />
             </SearchFieldIcon>
             <SearchButton type="submit">Search</SearchButton>
           </SearchForm>
@@ -271,13 +301,9 @@ const LocationSearchView = () => {
         </Results>
       </ResultsContainer>
     </Container>
+   
   );
 };
 
-/*onSubmit={e=>{
-                        e.preventDefault();
-                        setSearch(e.target.search.value);
-                        console.log(search);
-                    }} */
 
 export default LocationSearchView;

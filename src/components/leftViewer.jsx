@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import LocationSearchView from './LocationSearchView';
+
+
+
 
 
 const Container = styled.div`
@@ -38,7 +42,7 @@ const WeatherImgContainer = styled.div`
   align-items: center;
 `;
 
-const ButtonPlaces = styled.div`
+const ButtonPlaces = styled.button`
   width: 9rem;
   height: 2.2rem;
   background: #6E707A;
@@ -47,6 +51,12 @@ const ButtonPlaces = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 2rem;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 `;
 
 
@@ -70,6 +80,11 @@ const ButtonSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 
 `;
 
@@ -159,6 +174,7 @@ const WeatherLocation = styled.span`
   align-items: center;
   width: 100%;
   height: 6vh;
+
 `;
 
 const ButtonSearchIcon = styled.span`
@@ -172,15 +188,17 @@ const LocationIcon = styled.span`
 `;
 
 
-const LeftViewer = () => {
+const LeftViewer =({  toggleSearchView }) => {
+ 
+ 
   return (
     <Container>
 
       <CloudsContainer/>
 
       <ButtomsContainer>
-        <ButtonPlaces>
-          <BtnText>
+        <ButtonPlaces onClick={toggleSearchView}>
+          <BtnText >
             Search for places
           </BtnText>
         </ButtonPlaces>
@@ -234,8 +252,9 @@ const LeftViewer = () => {
       </WeatherExtendInfo>
 
       </WeatherContainerInfo>
-
+      {/*isSearchOpen && <LocationSearchView  />*/}
     </Container>
+    
   )
 }
 
