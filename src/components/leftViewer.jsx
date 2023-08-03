@@ -1,6 +1,9 @@
+
+//LeftViwer.jsx
 import React from 'react'
 import styled from 'styled-components';
 import LocationSearchView from './LocationSearchView';
+import { useState } from 'react';
 
 
 
@@ -188,8 +191,7 @@ const LocationIcon = styled.span`
 `;
 
 
-const LeftViewer =({  toggleSearchView }) => {
- 
+const LeftViewer =({ isSearchOpen, toggleSearchView }) => {
  
   return (
     <Container>
@@ -252,7 +254,7 @@ const LeftViewer =({  toggleSearchView }) => {
       </WeatherExtendInfo>
 
       </WeatherContainerInfo>
-      {/*isSearchOpen && <LocationSearchView  />*/}
+      {isSearchOpen && <LocationSearchView isOpen={isSearchOpen} toggleSearchView={toggleSearchView} />}
     </Container>
     
   )
