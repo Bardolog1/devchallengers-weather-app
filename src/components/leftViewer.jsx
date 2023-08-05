@@ -4,6 +4,7 @@ import React from 'react'
 import styled from 'styled-components';
 import LocationSearchView from './LocationSearchView';
 import { useState } from 'react';
+import  {useImgSelector} from '../hooks/useImgSelector';
 
 
 
@@ -15,6 +16,7 @@ const Container = styled.div`
   min-height: 100vh;
   background: #1E213A;
   position: relative;
+  order: 1;
 `;
 
 const CloudsContainer = styled.div`
@@ -57,9 +59,19 @@ const ButtonPlaces = styled.button`
   border: none;
 
   &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+      background: #55565e;
+      cursor: pointer;
+    }
+
+    &:active {
+        background: #E7E7EB;
+        color: #585676;
+        cursor: pointer;
+    }
+  
+    &:active span {
+        color:#6E707A;
+    }
 `;
 
 
@@ -84,10 +96,21 @@ const ButtonSearch = styled.div`
   justify-content: center;
   align-items: center;
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+    &:hover {
+        background: #55565e;
+        cursor: pointer;
+    }
+
+    &:active {
+        background: #E7E7EB;
+        color: #585676;
+        cursor: pointer;
+    }
+  
+    &:active span {
+        font-size: 1.2rem;
+        color:#6E707A;
+    }
 
 `;
 
@@ -142,6 +165,7 @@ const WeatherInfoText = styled.span`
   font-size: 25px;
   font-style: normal;
   font-weight: 600; 
+  text-transform: capitalize;
 `;
 
 const WeatherExtendInfo = styled.div`
@@ -177,6 +201,7 @@ const WeatherLocation = styled.span`
   align-items: center;
   width: 100%;
   height: 6vh;
+  text-transform: capitalize;
 
 `;
 
@@ -191,8 +216,14 @@ const LocationIcon = styled.span`
 `;
 
 
-const LeftViewer =({ isSearchOpen, toggleSearchView }) => {
+
+const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country, units, handleCityChange, handleGeoLocation}) => {
  
+
+  const [image] = useImgSelector(descri);
+  
+
+
   return (
     <Container>
 
@@ -208,7 +239,7 @@ const LeftViewer =({ isSearchOpen, toggleSearchView }) => {
           ()=>{
             if(!navigator.geolocation){}else{
               navigator.geolocation.getCurrentPosition((position)=>{
-                console.log(position);
+                handleGeoLocation(position);
               });
             }
            
@@ -221,23 +252,23 @@ const LeftViewer =({ isSearchOpen, toggleSearchView }) => {
       </ButtomsContainer>
 
       <WeatherImgContainer>
-        <WeatherImg src="./assets/img/Shower.png"/>
+        <WeatherImg src={image}/>
       </WeatherImgContainer>
 
       <WeatherContainerInfo>
 
         <WeatherText>
           <WeatherDeg>
-            15
+            {units?(temp-273.15).toFixed(0):((temp-273.15)*9/5+32).toFixed(0)}
           </WeatherDeg>
           <WeatherDegType>
-            °C
+            {units?'°C':'°F'}
           </WeatherDegType>
         </WeatherText>
 
         <WeatherInfo>
           <WeatherInfoText>
-            Shower
+          {descri}
           </WeatherInfoText>
         </WeatherInfo>
 
@@ -249,12 +280,18 @@ const LeftViewer =({ isSearchOpen, toggleSearchView }) => {
             <LocationIcon className="material-icons">
               location_on
             </LocationIcon>
-            Bogotá, Colombia
+            {city},{ country} 
           </WeatherLocation>
       </WeatherExtendInfo>
 
       </WeatherContainerInfo>
-      {isSearchOpen && <LocationSearchView isOpen={isSearchOpen} toggleSearchView={toggleSearchView} />}
+      {isSearchOpen 
+        && 
+        <LocationSearchView 
+          isOpen={isSearchOpen} 
+          toggleSearchView={toggleSearchView} 
+          handleCityChange={handleCityChange}
+          />}
     </Container>
     
   )

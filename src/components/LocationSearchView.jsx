@@ -124,9 +124,19 @@ const SearchButton = styled.button`
   font-size: 16px;
 
   &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+      background: #1b2285;
+      cursor: pointer;
+    }
+
+    &:active {
+        background: #e7e7eb;
+        color: #6E707A;
+        cursor: pointer;
+    }
+  
+    &:active span {
+        color:#6E707A;
+    }
 
 `;
 
@@ -250,10 +260,11 @@ const CitiesGetter = (search, data) => {
 
 
  
-const LocationSearchView = ({ isOpen, toggleSearchView }) => {
+const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCityChange }) => {
   const [data] = useState(cityData);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -264,7 +275,16 @@ const LocationSearchView = ({ isOpen, toggleSearchView }) => {
     setSearch(e.target.value);
   };
 
+
+  
+
   return (
+    <CSSTransition
+    in={isOpen}
+    timeout={1000}
+    classNames="fade"
+    unmountOnExit
+  >
     <Container 
     className={isOpen ? "open" : "close"} >
       <SearchContainer>
@@ -294,7 +314,17 @@ const LocationSearchView = ({ isOpen, toggleSearchView }) => {
           <ListResults>
             {results.length > 0 ? (
               results.map((city) => (
-                <ListItem key={city.id}>{city.name}</ListItem>
+                <ListItem 
+                  key={city.id}
+                  onClick={() => {
+                    handleCityChange(city);
+                    
+                  }
+
+                }
+                >
+                  {city.name}
+                </ListItem>
               ))
             ) : (
               <NotFound>Not Found Locations!</NotFound>
@@ -303,7 +333,7 @@ const LocationSearchView = ({ isOpen, toggleSearchView }) => {
         </Results>
       </ResultsContainer>
     </Container>
-   
+   </CSSTransition>
   );
 };
 
