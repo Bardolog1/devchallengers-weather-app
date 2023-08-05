@@ -90,7 +90,7 @@ const DayWeatherCard = ({order,  isCelsius, data}) => {
 
 
   const getDate = ()=>{
-    const day = data[0]?.dt_txt.split(' ')[0].split('-')[2];
+    const day = data[0]?.dt_txt.split(' ')[0].split('-')[2]?.split('')[0] === '0'? data[0]?.dt_txt.split(' ')[0].split('-')[2].split('')[1] : data[0]?.dt_txt.split(' ')[0].split('-')[2];
     const month = data[0]?.dt_txt.split(' ')[0].split('-')[1];
     const days = [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const months = [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
