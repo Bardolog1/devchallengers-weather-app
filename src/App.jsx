@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LeftViewer from './components/LeftViewer';
 import RightViewer from './components/RightViewer';
 import { useFetch }   from "./hooks/useFetch";
+import apiKey from './config';
 
 
 const AppCont = styled.div`
@@ -21,7 +22,8 @@ const AppCont = styled.div`
 
 const App = () => {
 
-  const apiKey = "6f0e0467ea802e16872b96eeb0e46772"; 
+
+  // apiKey incluida desde un fichero externo indexado en el .gitignore
   const [lati, setLati] = useState('4.6097');
   const [longi, setLongi] = useState('-74.0817');
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${apiKey}`;
