@@ -32,3 +32,4 @@ yarn-error.log*
 
 #Api
 src/config.js
+.env
