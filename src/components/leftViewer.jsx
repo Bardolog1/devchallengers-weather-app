@@ -222,7 +222,16 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
 
   const [image] = useImgSelector(descri);
   
+  const getGeoLocation = () => {
+    if(!navigator.geolocation){
+      alert('Geolocation is not supported by your browser');
+    }else{
+      navigator.geolocation.getCurrentPosition((position)=>{
+        handleGeoLocation(position);
+      });
+    }
 
+  }
 
   return (
     <Container>
@@ -235,16 +244,7 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
             Search for places
           </BtnText>
         </ButtonPlaces>
-        <ButtonSearch onClick={
-          ()=>{
-            if(!navigator.geolocation){}else{
-              navigator.geolocation.getCurrentPosition((position)=>{
-                handleGeoLocation(position);
-              });
-            }
-           
-          }
-        }>
+        <ButtonSearch onClick={()=> getGeoLocation()}>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
           </ButtonSearchIcon>        
@@ -280,7 +280,7 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
             <LocationIcon className="material-icons">
               location_on
             </LocationIcon>
-            {city},{ country} 
+            {city},{' '+country} 
           </WeatherLocation>
       </WeatherExtendInfo>
 

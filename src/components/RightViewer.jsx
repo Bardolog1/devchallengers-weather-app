@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DayWeatherCard from './DayWeatherCard';
 import { useFetch } from '../hooks/useFetch';
+import HighlightsCard from './HighlightsCard';
 
 const Container = styled.div`
     width: 75%;
@@ -33,7 +34,6 @@ const ChangeDegreeButtons = styled.div`
     //margin-right: 17rem;
     //margin-left: 8rem;
     padding-right: 8rem;
-    //background-color: red;
 
 `;
 
@@ -86,7 +86,6 @@ const DailyWeatherContainer = styled.div`
     width: 100%;
     height: 24.8vh;
     position: relative;
- //   background-color: rgba(0, 250, 0, 0.2);
 `;
 
 const DailyWeatherCardsContainer = styled.div`
@@ -94,7 +93,6 @@ const DailyWeatherCardsContainer = styled.div`
     margin: 0 7rem;
     display: flex;
     flex-direction: row;
- //   background-color: green;
     justify-content: space-around;
     align-items: center;
 `;
@@ -102,7 +100,40 @@ const DailyWeatherCardsContainer = styled.div`
 const CurrentHighlightsContainer = styled.div`
     width: 100%;
     height: 57.7vh;
-    background-color: rgba(250, 250, 0, 0.2);
+    position: relative;
+`;
+
+const CurrentHighlightsCardsContainer = styled.div`
+    height: 80%;
+    margin: 0 7rem;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+const CurrentHighlightsTitle = styled.div`
+    height: 15%;
+    margin: 0 7rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+`;
+
+const CurrentHighlightsTitleText = styled.span`
+    color: #e7e7eb;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: normal;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
 `;
 
 const FooterContainer = styled.div`
@@ -134,7 +165,18 @@ const UserLink = styled.a`
 
 
 
-const RightViewer = ({daylyData, handleDegreeChange,degree, isCelsius}) => {
+const RightViewer = ({
+    daylyData, 
+    handleDegreeChange,
+    degree, 
+    isCelsius,
+    wind,
+    humidity,
+    visibility,
+    pressure,
+    degreeWind
+    
+    }) => {
    
     const isSomeDay = (dateString,lastDay) => {
         const tomorrow = new Date();
@@ -220,7 +262,35 @@ const RightViewer = ({daylyData, handleDegreeChange,degree, isCelsius}) => {
             </DailyWeatherCardsContainer>
         </DailyWeatherContainer>
         <CurrentHighlightsContainer>
-
+            <CurrentHighlightsTitle>
+                <CurrentHighlightsTitleText>
+                    Today's Highlights
+                </CurrentHighlightsTitleText>
+            </CurrentHighlightsTitle>
+            <CurrentHighlightsCardsContainer>
+                <HighlightsCard 
+                    title="Wind status" 
+                    unit="Km/h" value={wind} 
+                    degreeWind={degreeWind}
+                ></HighlightsCard>
+                <HighlightsCard 
+                    title="Humidity" 
+                    unit="%" 
+                    value={humidity}
+                ></HighlightsCard>
+                <HighlightsCard 
+                    title="Visibility" 
+                    unit="Km" 
+                    type="secundary" 
+                    value={visibility}
+                ></HighlightsCard>
+                <HighlightsCard 
+                    title="Air Pressure" 
+                    unit="hPa" 
+                    type="secundary" 
+                    value={pressure}
+                ></HighlightsCard>
+            </CurrentHighlightsCardsContainer>
         </CurrentHighlightsContainer>
         <FooterContainer>
             <FooterText>created by 

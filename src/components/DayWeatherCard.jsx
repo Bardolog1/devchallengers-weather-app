@@ -53,7 +53,7 @@ const DayImageContainer = styled.div`
 
 const DayImage = styled.img`
     width: 5rem;
-    height: 5rem;
+    height: 4.6rem;
     background-color: transparent;
 `;
 

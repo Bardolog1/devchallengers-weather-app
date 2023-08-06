@@ -42,10 +42,11 @@ const App = () => {
   const descri = weatherData?.weather[0]?.description || "Sin datos";
   const cityApi = weatherData?.name || "Ciudad desconocida";
   const country = weatherData?.sys?.country || "Desconocido";
-  const wind = weatherData?.wind?.speed || 0;
-  const humidity = weatherData?.main?.humidity || 0;
-  const pressure = weatherData?.main?.pressure || 0;
-  const visibility = weatherData?.visibility || 0;
+  const wind = (weatherData?.wind?.speed * 3.6).toFixed(1) || 0;
+  const humidity = (weatherData?.main?.humidity).toFixed(0) || 0;
+  const pressure = (weatherData?.main?.pressure).toFixed(0) || 0;
+  const visibility = (weatherData?.visibility/1000).toFixed(0) || 0;
+  const degreeWind = weatherData?.wind?.deg || 0;
 
   const daysWeather = dailyData?.list || [];
 
@@ -94,6 +95,12 @@ const App = () => {
         handleDegreeChange={handleDegreeChange}
         daylyData={daysWeather}
         isCelsius={isCelsius}
+        wind={wind}
+        humidity={humidity}
+        pressure={pressure}
+        visibility={visibility}
+        degreeWind={degreeWind}
+
         
       />
     </AppCont>
