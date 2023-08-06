@@ -1,6 +1,14 @@
+
+//LeftViwer.jsx
 import React from 'react'
 import styled from 'styled-components';
-//import GpsFixedIcon from '@mui/icons-material/GpsFixed';
+import LocationSearchView from './LocationSearchView';
+import { useState } from 'react';
+import  {useImgSelector} from '../hooks/useImgSelector';
+
+
+
+
 
 const Container = styled.div`
   display: inline-block;
@@ -8,6 +16,7 @@ const Container = styled.div`
   min-height: 100vh;
   background: #1E213A;
   position: relative;
+  order: 1;
 `;
 
 const CloudsContainer = styled.div`
@@ -18,8 +27,8 @@ const CloudsContainer = styled.div`
   height: 45.5vh;;
   width: 100%;
   background: url('./assets/img/Cloud-background.png') no-repeat center center;
-  background-size: 160% 85%;
-  opacity: 0.27;
+  background-size: 150% 95%;
+  opacity: 0.1;
 `;
 
 const ButtomsContainer = styled.div`
@@ -38,7 +47,7 @@ const WeatherImgContainer = styled.div`
   align-items: center;
 `;
 
-const ButtonPlaces = styled.div`
+const ButtonPlaces = styled.button`
   width: 9rem;
   height: 2.2rem;
   background: #6E707A;
@@ -47,6 +56,22 @@ const ButtonPlaces = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 2rem;
+  border: none;
+
+  &:hover {
+      background: #55565e;
+      cursor: pointer;
+    }
+
+    &:active {
+        background: #E7E7EB;
+        color: #585676;
+        cursor: pointer;
+    }
+  
+    &:active span {
+        color:#6E707A;
+    }
 `;
 
 
@@ -70,6 +95,22 @@ const ButtonSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+    &:hover {
+        background: #55565e;
+        cursor: pointer;
+    }
+
+    &:active {
+        background: #E7E7EB;
+        color: #585676;
+        cursor: pointer;
+    }
+  
+    &:active span {
+        font-size: 1.2rem;
+        color:#6E707A;
+    }
 
 `;
 
@@ -95,7 +136,7 @@ const WeatherText = styled.div`
 const WeatherDeg = styled.span`
   color: #E7E7EB;
   font-family: Raleway;
-  font-size: 134px;
+  font-size: 100px;
   font-style: normal;
   font-weight: 500; 
 `;
@@ -103,9 +144,10 @@ const WeatherDeg = styled.span`
 const WeatherDegType = styled.span`
   color: #A09FB1;
   font-family: Raleway;
-  font-size: 38px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 500; 
+  margin-top:50px;
 `;
 
 const WeatherInfo = styled.div`
@@ -120,9 +162,10 @@ const WeatherInfoText = styled.span`
   color: #A09FB1;
   text-align: center;
   font-family: Raleway;
-  font-size: 26px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 600; 
+  text-transform: capitalize;
 `;
 
 const WeatherExtendInfo = styled.div`
@@ -158,6 +201,8 @@ const WeatherLocation = styled.span`
   align-items: center;
   width: 100%;
   height: 6vh;
+  text-transform: capitalize;
+
 `;
 
 const ButtonSearchIcon = styled.span`
@@ -171,19 +216,35 @@ const LocationIcon = styled.span`
 `;
 
 
-const LeftViewer = () => {
+
+const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country, units, handleCityChange, handleGeoLocation}) => {
+ 
+
+  const [image] = useImgSelector(descri);
+  
+  const getGeoLocation = () => {
+    if(!navigator.geolocation){
+      alert('Geolocation is not supported by your browser');
+    }else{
+      navigator.geolocation.getCurrentPosition((position)=>{
+        handleGeoLocation(position);
+      });
+    }
+
+  }
+
   return (
     <Container>
 
       <CloudsContainer/>
 
       <ButtomsContainer>
-        <ButtonPlaces>
-          <BtnText>
+        <ButtonPlaces onClick={toggleSearchView}>
+          <BtnText >
             Search for places
           </BtnText>
         </ButtonPlaces>
-        <ButtonSearch>
+        <ButtonSearch onClick={()=> getGeoLocation()}>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
           </ButtonSearchIcon>        
@@ -191,23 +252,23 @@ const LeftViewer = () => {
       </ButtomsContainer>
 
       <WeatherImgContainer>
-        <WeatherImg src="./assets/img/Shower.png"/>
+        <WeatherImg src={image}/>
       </WeatherImgContainer>
 
       <WeatherContainerInfo>
 
         <WeatherText>
           <WeatherDeg>
-            15
+            {units?(temp-273.15).toFixed(0):((temp-273.15)*9/5+32).toFixed(0)}
           </WeatherDeg>
           <WeatherDegType>
-            °C
+            {units?'°C':'°F'}
           </WeatherDegType>
         </WeatherText>
 
         <WeatherInfo>
           <WeatherInfoText>
-            Shower
+          {descri}
           </WeatherInfoText>
         </WeatherInfo>
 
@@ -219,13 +280,20 @@ const LeftViewer = () => {
             <LocationIcon className="material-icons">
               location_on
             </LocationIcon>
-            Bogotá, Colombia
+            {city},{' '+country} 
           </WeatherLocation>
       </WeatherExtendInfo>
 
       </WeatherContainerInfo>
-
+      {isSearchOpen 
+        && 
+        <LocationSearchView 
+          isOpen={isSearchOpen} 
+          toggleSearchView={toggleSearchView} 
+          handleCityChange={handleCityChange}
+          />}
     </Container>
+    
   )
 }
 
