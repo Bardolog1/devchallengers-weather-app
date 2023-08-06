@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import cityData from '../data/city.list.min.json';
-import { CSSTransition } from 'react-transition-group';
+
 
 const Container = styled.div`
   display: inline-block;
@@ -264,7 +264,7 @@ const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCity
   const [data] = useState(cityData);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
-  const [selectedCity, setSelectedCity] = useState(null);
+ 
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -279,12 +279,7 @@ const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCity
   
 
   return (
-    <CSSTransition
-    in={isOpen}
-    timeout={1000}
-    classNames="fade"
-    unmountOnExit
-  >
+   
     <Container 
     className={isOpen ? "open" : "close"} >
       <SearchContainer>
@@ -333,7 +328,7 @@ const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCity
         </Results>
       </ResultsContainer>
     </Container>
-   </CSSTransition>
+  
   );
 };
 

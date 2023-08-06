@@ -3,7 +3,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import LocationSearchView from './LocationSearchView';
-import { useState } from 'react';
 import  {useImgSelector} from '../hooks/useImgSelector';
 
 
