@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import DayWeatherCard from './DayWeatherCard';
-import { useFetch } from '../hooks/useFetch';
 import HighlightsCard from './HighlightsCard';
 
 const Container = styled.div`
