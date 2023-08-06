@@ -124,6 +124,8 @@ export function useImgSelector(description) {
         case 'overcast clouds':
           return './assets/img/HeavyCloud.png';
         
+          default:
+          return null;
       }
     };
 
