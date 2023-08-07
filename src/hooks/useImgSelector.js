@@ -133,5 +133,5 @@ export function useImgSelector(description) {
     setImg(selectedImg);
   }, [description]);
 
-  return [ img ];
+  return  [img] ;
 }
