@@ -1,12 +1,8 @@
-
-//LeftViwer.jsx
 import React from 'react'
 import styled from 'styled-components';
 import LocationSearchView from './LocationSearchView';
 import  {useImgSelector} from '../hooks/useImgSelector';
-
-
-
+import { useDateFormatted } from '../hooks/useDateFormatted';
 
 
 const Container = styled.div`
@@ -73,7 +69,6 @@ const ButtonPlaces = styled.button`
     }
 `;
 
-
 const BtnText = styled.span`
   color: #e7e7eb;
   font-family: 'Raleway', sans-serif;
@@ -82,7 +77,6 @@ const BtnText = styled.span`
   line-height: normal; 
   
 `;
-
 
 const ButtonSearch = styled.div`
   width: 2.2rem;
@@ -112,8 +106,6 @@ const ButtonSearch = styled.div`
     }
 
 `;
-
-
 
 const WeatherImg = styled.img`
   width: 40%;
@@ -186,8 +178,6 @@ const WeatherDate = styled.span`
   height: 6vh;
 `;
 
-
-
 const WeatherLocation = styled.span`
   color: #88869D;
   font-family: Raleway;
@@ -216,10 +206,29 @@ const LocationIcon = styled.span`
 
 
 
-const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country, units, handleCityChange, handleGeoLocation}) => {
+const LeftViewer =({ 
+  isSearchOpen, 
+  toggleSearchView, 
+  temp, 
+  descri, 
+  city, 
+  country, 
+  units, 
+  handleCityChange, 
+  handleGeoLocation
+}) => {
  
 
   const [image] = useImgSelector(descri);
+  const date = useDateFormatted();
+
+  const temAdjust = () => {
+    if(units){
+      return (temp-273.15).toFixed(0);
+    }else{
+      return ((temp-273.15)*9/5+32).toFixed(0);
+    }
+  }
   
   const getGeoLocation = () => {
     if(!navigator.geolocation){
@@ -229,14 +238,11 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
         handleGeoLocation(position);
       });
     }
-
   }
 
   return (
     <Container>
-
       <CloudsContainer/>
-
       <ButtomsContainer>
         <ButtonPlaces onClick={toggleSearchView}>
           <BtnText >
@@ -249,31 +255,26 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
           </ButtonSearchIcon>        
         </ButtonSearch>
       </ButtomsContainer>
-
       <WeatherImgContainer>
         <WeatherImg src={image}/>
       </WeatherImgContainer>
-
       <WeatherContainerInfo>
-
         <WeatherText>
           <WeatherDeg>
-            {units?(temp-273.15).toFixed(0):((temp-273.15)*9/5+32).toFixed(0)}
+            {temAdjust()}
           </WeatherDeg>
           <WeatherDegType>
             {units?'°C':'°F'}
           </WeatherDegType>
         </WeatherText>
-
         <WeatherInfo>
           <WeatherInfoText>
           {descri}
           </WeatherInfoText>
         </WeatherInfo>
-
         <WeatherExtendInfo>
           <WeatherDate>
-            Today    •    Fri, 5 Jun
+            Today    •    {date}
           </WeatherDate>
           <WeatherLocation>
             <LocationIcon className="material-icons">
@@ -282,7 +283,6 @@ const LeftViewer =({ isSearchOpen, toggleSearchView, temp, descri, city, country
             {city},{' '+country} 
           </WeatherLocation>
       </WeatherExtendInfo>
-
       </WeatherContainerInfo>
       {isSearchOpen 
         && 

@@ -242,20 +242,21 @@ const ListItem = styled.li`
 
 const CitiesGetter = (search, data) => {
 
-    if(!search.isEmpty){
-  const dataFormated = data?.map((city) => {
-    let cityFormated = city.name.toLowerCase();
-    cityFormated = cityFormated.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-    return { ...city, name: cityFormated };
-  });
+  if (!search.isEmpty) {
+    const dataFormatted = data?.map((city) => {
+      let cityFormatted = city.name.toLowerCase();
+      cityFormatted = cityFormatted.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "");
+      return { ...city, name: cityFormatted };
+    });
 
-  return dataFormated.filter((city) =>
-    city.name.includes(search.toLowerCase())
-  );
-}else{
+    return dataFormatted.filter((city) =>
+      city.name.includes(search.toLowerCase())
+    );
+  } else {
     return [];
-}
-};
+  }
+  
+  };
 
 
 

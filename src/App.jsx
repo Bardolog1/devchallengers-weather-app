@@ -22,7 +22,6 @@ const AppCont = styled.div`
 
 const App = () => {
 
-
   // apiKey incluida desde un fichero externo de variables de entorno indexado en el .gitignore
   const apiKey = process.env.REACT_APP_API_KEY;
   const [lati, setLati] = useState('4.6097');
@@ -34,7 +33,6 @@ const App = () => {
   const { data: dailyData} = useFetch(dailyUrl);
  
   const [isSearchOpen, setIsSearchOpen] = useState(false);
- 
   const [isCelsius, setIsCelsius] = useState(true);
  
   const [searchCity, setSearchCity] = useState('bogota');
@@ -44,12 +42,12 @@ const App = () => {
   const cityApi = weatherData?.name || "Ciudad desconocida";
   const country = weatherData?.sys?.country || "Desconocido";
   const wind = (weatherData?.wind?.speed * 3.6).toFixed(1) || 0;
-  const humidity = (weatherData?.main?.humidity).toFixed(0) || 0;
-  const pressure = (weatherData?.main?.pressure).toFixed(0) || 0;
-  const visibility = (weatherData?.visibility/1000).toFixed(0) || 0;
+  const humidity = (weatherData?.main?.humidity)?.toFixed(0) || 0;
+  const pressure = (weatherData?.main?.pressure)?.toFixed(0) || 0;
+  const visibility = (weatherData?.visibility/1000)?.toFixed(0) || 0;
   const degreeWind = weatherData?.wind?.deg || 0;
-
   const daysWeather = dailyData?.list || [];
+
 
   useEffect(() => {
     setLati(searchCity.coord?.lat || '4.6097');
@@ -75,9 +73,6 @@ const App = () => {
     setLongi(geo.coords.longitude);
   }
   
-  
-
-
   return (
     <AppCont>
        <LeftViewer 
@@ -101,8 +96,6 @@ const App = () => {
         pressure={pressure}
         visibility={visibility}
         degreeWind={degreeWind}
-
-        
       />
     </AppCont>
     
