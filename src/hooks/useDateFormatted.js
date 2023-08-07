@@ -40,7 +40,7 @@ export function useDateFormatted(data, order) {
 
         const intervalId = setInterval(() => getDate, 60000);
         return () => clearInterval(intervalId);
-    }, [data, order]);
+    }, [data, order, today, days, months]);
 
 
     
