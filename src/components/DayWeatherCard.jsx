@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import  {useImgSelector} from '../hooks/useImgSelector';
+import  { useImgSelector } from '../hooks/useImgSelector';
 import { useDateFormatted } from '../hooks/useDateFormatted';
 
 
