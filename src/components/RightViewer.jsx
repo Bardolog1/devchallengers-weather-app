@@ -293,7 +293,7 @@ const RightViewer = ({
         </CurrentHighlightsContainer>
         <FooterContainer>
             <FooterText>created by 
-                <UserLink href=""
+                <UserLink href="https://github.com/Bardolog1"
                     target="_blank"
                     rel="noopener noreferrer"
                 >Libardo Lozano</UserLink> 

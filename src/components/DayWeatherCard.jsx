@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import  {useImgSelector} from '../hooks/useImgSelector';
+import { useDateFormatted } from '../hooks/useDateFormatted';
 
 
 const Container = styled.div`
@@ -74,7 +75,7 @@ const Degree = styled.span`
     &.min{
         color: #E7E7EB;
     }
-
+    
     &.max{
         color: #A09FB1;
     }
@@ -83,25 +84,15 @@ const Degree = styled.span`
 
 const DayWeatherCard = ({order,  isCelsius, data}) => {
   
-  const description = data[0]?.weather[0].description;
-  const [image] = useImgSelector(description);   
-  const min = isCelsius? (data[0]?.main.temp_min - 273.15).toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32).toFixed(0);
-  const max = isCelsius? (data[data.length- 1]?.main.temp_max - 273.15).toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32).toFixed(0);
-
-
-  const getDate = ()=>{
-    const day = data[0]?.dt_txt.split(' ')[0].split('-')[2]?.split('')[0] === '0'? data[0]?.dt_txt.split(' ')[0].split('-')[2].split('')[1] : data[0]?.dt_txt.split(' ')[0].split('-')[2];
-    const month = data[0]?.dt_txt.split(' ')[0].split('-')[1];
-    const days = [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    const months = [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
-    const today = new Date().getDay();
-    const cardDay = (today + Number(order))>7? (today + Number(order)) - 7 : (today + Number(order));
-    return order === '1' ? 'Tomorrow' : days[cardDay] + ', ' + day + ' ' + months[Number(month)];
-  }
+    const description = data[0]?.weather[0].description;
+    const [image] = useImgSelector(description);   
+    const min = isCelsius? (data[0]?.main.temp_min - 273.15).toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32).toFixed(0);
+    const max = isCelsius? (data[data.length- 1]?.main.temp_max - 273.15).toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32).toFixed(0);
+    const date = useDateFormatted(data, order);
   
     return (
     <Container className={'_'+order}>
-        <TitleDay>{getDate()}</TitleDay>
+        <TitleDay>{date}</TitleDay>
         <DayImageContainer>
             <DayImage src={image} alt={description}/>
         </DayImageContainer>
