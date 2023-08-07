@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {useState, useEffect} from 'react';
 
 export function useDateFormatted(data, order) {
@@ -7,7 +7,7 @@ export function useDateFormatted(data, order) {
     const today = new Date().getDay();
     const days = [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const months = [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
-    const dayMonth = new Date().getDate();
+
     
     useEffect(() => {
 
@@ -40,7 +40,7 @@ export function useDateFormatted(data, order) {
 
         const intervalId = setInterval(() => getDate, 60000);
         return () => clearInterval(intervalId);
-    }, [data, order,]);
+    }, [data, order]);
 
 
     
