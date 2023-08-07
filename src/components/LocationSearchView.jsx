@@ -285,7 +285,14 @@ const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCity
     className={isOpen ? "open" : "close"} >
       <SearchContainer>
         <CloseSection>
-          <CloseButton onClick={toggleSearchView}>X</CloseButton>
+          <CloseButton 
+          onClick={(e) =>{
+            e.preventDefault();
+            toggleSearchView()
+           }
+         }
+          
+            >X</CloseButton>
         </CloseSection>
         <SearchSection>
           <SearchForm onSubmit={handleSearch}>

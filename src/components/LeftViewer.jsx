@@ -244,12 +244,20 @@ const LeftViewer =({
     <Container>
       <CloudsContainer/>
       <ButtomsContainer>
-        <ButtonPlaces onClick={toggleSearchView}>
+        <ButtonPlaces  
+          onClick={(e) =>{
+                e.preventDefault();
+                toggleSearchView();
+          }
+          }>
           <BtnText >
             Search for places
           </BtnText>
         </ButtonPlaces>
-        <ButtonSearch onClick={()=> getGeoLocation()}>
+        <ButtonSearch onClick={(e)=> {
+          e.preventDefault();
+          getGeoLocation()
+          }}>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
           </ButtonSearchIcon>        

@@ -215,13 +215,21 @@ const RightViewer = ({
             <ChangeDegreeButtons>
                 <ChangeDegreeButton
                     className={degree ? 'active' : ''}
-                    onClick={handleDegreeChange}
+                    onClick={(e) =>{
+                        e.preventDefault();
+                        handleDegreeChange()
+                    }
+                    }
                 >
                     <span>°</span>C
                 </ChangeDegreeButton>
                 <ChangeDegreeButton
                     className={degree ? '' : 'active'}
-                    onClick={handleDegreeChange}
+                    onClick={(e) =>{
+                        e.preventDefault();
+                        handleDegreeChange()
+                    }
+                    }
                 >
                     <span>°</span>F
                 </ChangeDegreeButton>
