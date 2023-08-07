@@ -5,22 +5,14 @@ export function useDateFormatted(data, order) {
 
     const [dateFormatted, setDateFormatted] = useState(null);
    
-
-    
     useEffect(() => {
 
-         const today = new Date().getDay();
-          const days = [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-           const months = [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
+        const today = new Date().getDay();
+        const days = [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const months = [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
 
         const getDate = () => {
-        if(
-            data !== null &&
-            data !== undefined &&
-            order !== null &&
-            order !== undefined 
-
-            ) {
+        if( data !== null && data !== undefined && order !== null && order !== undefined ) {
             const day = data[0]?.dt_txt.split(' ')[0].split('-')[2]?.split('')[0] === '0'? 
                     data[0]?.dt_txt.split(' ')[0].split('-')[2].split('')[1] : 
                     data[0]?.dt_txt.split(' ')[0].split('-')[2];
