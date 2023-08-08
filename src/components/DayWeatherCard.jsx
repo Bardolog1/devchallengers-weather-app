@@ -91,16 +91,16 @@ const DayWeatherCard = ({order,  isCelsius, data}) => {
     const date = useDateFormatted(data, order);
   
     return (
-    <Container className={'_'+order}>
-        <TitleDay>{date?date:"Some Day"}</TitleDay>
-        <DayImageContainer>
-            <DayImage src={image} alt={description}/>
-        </DayImageContainer>
-        <DegreeContainer>
-            <Degree className="min">{min}{isCelsius?'°C':'°F'}</Degree>
-            <Degree className="max">{max}{isCelsius?'°C':'°F'}</Degree>
-        </DegreeContainer>
-    </Container>
+        <Container className={'_'+order}>
+            <TitleDay>{date?date:"Some Day"}</TitleDay>
+            <DayImageContainer>
+                <DayImage src={image} alt={description}/>
+            </DayImageContainer>
+            <DegreeContainer>
+                <Degree className="min">{min}{isCelsius?'°C':'°F'}</Degree>
+                <Degree className="max">{max}{isCelsius?'°C':'°F'}</Degree>
+            </DegreeContainer>
+        </Container>
   )
 }
 

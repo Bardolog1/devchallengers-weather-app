@@ -194,15 +194,15 @@ const RightViewer = ({
     const dispatcherData = (data, card)=>{
        switch (card) {
               case 1:
-                    return data.filter((item) => isSomeDay(item.dt_txt,1));
+                    return data?.filter((item) => isSomeDay(item.dt_txt,1));
                case 2:
-                    return data.filter((item) => isSomeDay(item.dt_txt,2));
+                    return data?.filter((item) => isSomeDay(item.dt_txt,2));
                case 3:
-                    return data.filter((item) => isSomeDay(item.dt_txt,3));
+                    return data?.filter((item) => isSomeDay(item.dt_txt,3));
                 case 4:
-                    return data.filter((item) => isSomeDay(item.dt_txt,4));
+                    return data?.filter((item) => isSomeDay(item.dt_txt,4));
                 case 5:
-                    return data.filter((item) => isSomeDay(item.dt_txt,5));
+                    return data?.filter((item) => isSomeDay(item.dt_txt,5));
                 default:
                     return null;              
        }
@@ -239,31 +239,31 @@ const RightViewer = ({
             <DailyWeatherCardsContainer>
                 <DayWeatherCard 
                     order='1' 
-                    data={dispatcherData(daylyData,1)}
+                    data={dispatcherData(daylyData?daylyData:null,1)}
                     isCelsius={isCelsius}
                 ></DayWeatherCard>
                 <DayWeatherCard 
                     order='2' 
                     isCelsius={isCelsius}
-                    data={dispatcherData(daylyData,2)}
+                    data={dispatcherData(daylyData?daylyData:null,2)}
                 >
                 </DayWeatherCard>
                 <DayWeatherCard 
                     order='3'
                     isCelsius={isCelsius}
-                    data={dispatcherData(daylyData,3)}
+                    data={dispatcherData(daylyData?daylyData:null,3)}
                 >
                 </DayWeatherCard>
                 <DayWeatherCard 
                     order='4'
                     isCelsius={isCelsius}
-                    data={dispatcherData(daylyData,4)}
+                    data={dispatcherData(daylyData?daylyData:null,4)}
                 >
                 </DayWeatherCard>
                 <DayWeatherCard 
                     order='5'
                     isCelsius={isCelsius}
-                    data={dispatcherData(daylyData,5)}
+                    data={dispatcherData(daylyData?daylyData:null,5)}
                 >
                 </DayWeatherCard>
             </DailyWeatherCardsContainer>
