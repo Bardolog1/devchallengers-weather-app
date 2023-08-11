@@ -88,7 +88,7 @@ const DayWeatherCard = ({order,  isCelsius, data}) => {
     const [image] = useImgSelector(description?.toLowerCase());   
     const min = data[0]? isCelsius ? (data[0]?.main.temp_min - 273.15)?.toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
     const max = data[0]? isCelsius ? (data[data.length- 1]?.main.temp_max - 273.15)?.toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
-    const date = data? useDateFormatted(data, order) : "Some Day";
+    const date =  useDateFormatted(data[0]? data:null, order);
   
     return (
         <Container className={'_'+order}>
