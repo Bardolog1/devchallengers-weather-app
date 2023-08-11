@@ -84,7 +84,7 @@ const Degree = styled.span`
 
 const DayWeatherCard = ({order,  isCelsius, data}) => {
   
-    const description = data[0]? data[0].weather[0].description : "no hay datos";
+    const description = data[0]? data[0].weather[0].description : "No hay datos";
     const [image] = useImgSelector(description?.toLowerCase());   
     const min = data[0]? isCelsius ? (data[0]?.main.temp_min - 273.15)?.toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
     const max = data[0]? isCelsius ? (data[data.length- 1]?.main.temp_max - 273.15)?.toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
