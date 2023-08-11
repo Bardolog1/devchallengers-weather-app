@@ -256,7 +256,7 @@ const LeftViewer =({
         </ButtonPlaces>
         <ButtonSearch onClick={(e)=> {
           e.preventDefault();
-          getGeoLocation()
+          getGeoLocation();
           }}>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
@@ -282,7 +282,7 @@ const LeftViewer =({
         </WeatherInfo>
         <WeatherExtendInfo>
           <WeatherDate>
-            Today    •    {date}
+            Today     •     {date}
           </WeatherDate>
           <WeatherLocation>
             <LocationIcon className="material-icons">

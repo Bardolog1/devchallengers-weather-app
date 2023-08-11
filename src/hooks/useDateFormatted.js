@@ -18,7 +18,9 @@ export function useDateFormatted(data, order) {
             data !== null &&
             data !== undefined &&
             order !== null &&
-            order !== undefined 
+            order !== undefined &&
+            data[0] !== null &&
+            data[0] !== undefined
 
             ) {
             const day = data[0]?.dt_txt.split(' ')[0].split('-')[2]?.split('')[0] === '0'? 

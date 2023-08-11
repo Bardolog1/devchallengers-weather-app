@@ -319,11 +319,10 @@ const LocationSearchView = ({ isOpen, toggleSearchView,  cityWeather, handleCity
               results.map((city) => (
                 <ListItem 
                   key={city.id}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     handleCityChange(city);
-                    
                   }
-
                 }
                 >
                   {city.name}

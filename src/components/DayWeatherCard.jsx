@@ -84,23 +84,23 @@ const Degree = styled.span`
 
 const DayWeatherCard = ({order,  isCelsius, data}) => {
   
-    const description = data[0]?.weather[0].description;
-    const [image] = useImgSelector(description);   
-    const min = isCelsius? (data[0]?.main.temp_min - 273.15).toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32).toFixed(0);
-    const max = isCelsius? (data[data.length- 1]?.main.temp_max - 273.15).toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32).toFixed(0);
-    const date = useDateFormatted(data, order);
+    const description = data[0]? data[0].weather[0].description : "No hay datos";
+    const [image] = useImgSelector(description?.toLowerCase());   
+    const min = data[0]? isCelsius ? (data[0]?.main.temp_min - 273.15)?.toFixed(0) : ((data[0].main.temp_min - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
+    const max = data[0]? isCelsius ? (data[data.length- 1]?.main.temp_max - 273.15)?.toFixed(0) : ((data[data.length- 1].main.temp_max - 273.15) * 9/5 + 32)?.toFixed(0) : "00";
+    const date =  useDateFormatted(data[0]? data:null, order);
   
     return (
-    <Container className={'_'+order}>
-        <TitleDay>{date}</TitleDay>
-        <DayImageContainer>
-            <DayImage src={image} alt={description}/>
-        </DayImageContainer>
-        <DegreeContainer>
-            <Degree className="min">{min}{isCelsius?'°C':'°F'}</Degree>
-            <Degree className="max">{max}{isCelsius?'°C':'°F'}</Degree>
-        </DegreeContainer>
-    </Container>
+        <Container className={'_'+order}>
+            <TitleDay>{date?date:"Some Day"}</TitleDay>
+            <DayImageContainer>
+                <DayImage src={image} alt={description}/>
+            </DayImageContainer>
+            <DegreeContainer>
+                <Degree className="min">{min}{isCelsius?'°C':'°F'}</Degree>
+                <Degree className="max">{max}{isCelsius?'°C':'°F'}</Degree>
+            </DegreeContainer>
+        </Container>
   )
 }
 
