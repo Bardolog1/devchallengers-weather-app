@@ -27,7 +27,7 @@ const App = () => {
   const [lati, setLati] = useState('4.6097');
   const [longi, setLongi] = useState('-74.0817');
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${apiKey}`;
-  const dailyUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lati}&lon=${longi}&appid=${apiKey}`;
+  const dailyUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lati}&lon=${longi}&appid=${apiKey}`;
   
   const { data: weatherData } = useFetch(weatherUrl);
   const { data: dailyData} = useFetch(dailyUrl);
