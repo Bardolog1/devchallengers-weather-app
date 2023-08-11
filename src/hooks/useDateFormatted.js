@@ -15,11 +15,11 @@ export function useDateFormatted(data, order) {
 
         const getDate = () => {
         if(
-            data !== null ||
-            data !== undefined ||
-            order !== null ||
-            order !== undefined ||
-            data[0] !== null ||
+            data !== null &&
+            data !== undefined &&
+            order !== null &&
+            order !== undefined &&
+            data[0] !== null &&
             data[0] !== undefined
 
             ) {
