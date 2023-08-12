@@ -12,6 +12,17 @@ const Container = styled.div`
     align-items: center;
     order: 2;
     position: relative;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    }
+    
 `;
 
 const ChangeDegreeContainer = styled.div`
@@ -21,7 +32,11 @@ const ChangeDegreeContainer = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-   // background-color: rgba(250, 0, 0, 0.2);
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        display: none;
+    }
 `;
 
 const ChangeDegreeButtons = styled.div`
@@ -30,8 +45,6 @@ const ChangeDegreeButtons = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    //margin-right: 17rem;
-    //margin-left: 8rem;
     padding-right: 8rem;
 
 `;
@@ -85,6 +98,11 @@ const DailyWeatherContainer = styled.div`
     width: 100%;
     height: 24.8vh;
     position: relative;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        height: 100vh;
+    }
 `;
 
 const DailyWeatherCardsContainer = styled.div`
@@ -94,12 +112,35 @@ const DailyWeatherCardsContainer = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        height: 100vh;
+        padding: 0 1rem;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+    }
 `;
 
 const CurrentHighlightsContainer = styled.div`
     width: 100%;
     height: 57.7vh;
     position: relative;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 150vh;
+        padding: 0 1rem;
+    }
+    
+
 `;
 
 const CurrentHighlightsCardsContainer = styled.div`
@@ -111,6 +152,19 @@ const CurrentHighlightsCardsContainer = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-wrap: nowrap; 
+        margin: 0;
+        
+    }
 `;
 
 const CurrentHighlightsTitle = styled.div`
@@ -120,6 +174,15 @@ const CurrentHighlightsTitle = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        width: 100%;
+        align-items: center;
+        margin: 0 2rem;
+        padding-left: 2rem;
+        height: 8%;
+    }
 `;
 
 const CurrentHighlightsTitleText = styled.span`
@@ -149,6 +212,7 @@ const FooterText = styled.span`
     font-weight: 500;
     font-size: 0.8rem;
     line-height: normal;
+    text-align: center;
 `;
 
 const UserLink = styled.a`

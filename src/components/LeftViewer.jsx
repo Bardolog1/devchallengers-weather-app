@@ -12,6 +12,17 @@ const Container = styled.div`
   background: #1E213A;
   position: relative;
   order: 1;
+
+  /* Responsive Styles */
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 `;
 
 const CloudsContainer = styled.div`
