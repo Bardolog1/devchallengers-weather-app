@@ -1,7 +1,6 @@
 # Weather App Challenge ☀️🌧️🌦️
 
-(![Weather App Screenshot](![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
-))
+![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
 
 This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
 
@@ -33,8 +32,8 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 
 ## Screenshot 📸
 
-![Weather App Screenshot](![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/124ad882-ca0a-42c4-833c-bab71de47b12)
-)
+![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
+
 
 ## How to Run Locally 🏃‍♂️
 
