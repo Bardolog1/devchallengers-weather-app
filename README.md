@@ -44,8 +44,7 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 4. Start the app: `npm start`
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
    
-## How to Use Bash ![CoreKeeperCoreGIF](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/ee71f21e-d8f2-440f-8978-21c7dd467395)
-
+## How to Use Bash
 ```bash
 #Clone repository
 $ git clone https://github.com/Bardolog1/devchallengers-weather-app.git
