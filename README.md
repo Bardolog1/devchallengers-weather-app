@@ -37,7 +37,7 @@
 
 This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
 
-### `[Check out the live demo!](https://weatherchallengeapp.netlify.app/)`
+### [Check out the live demo!](https://weatherchallengeapp.netlify.app/)
 
 ## Releases 🚀
 
