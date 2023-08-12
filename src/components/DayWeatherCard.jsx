@@ -29,6 +29,13 @@ const Container = styled.div`
     &._5{
         order: 5;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        width: 35%;
+        height: 25%;
+       
+    }
 `;
 
 const TitleDay = styled.h2`

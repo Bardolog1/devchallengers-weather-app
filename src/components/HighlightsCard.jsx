@@ -21,6 +21,19 @@ const Container = styled.div`
 
     }
 
+    /* Responsive Styles */
+    @media (max-width: 480px) {
+        width: 90%;
+        height: 80%;
+        margin-bottom: 2rem;
+
+        &.secundary{
+            height: 80%;
+            margin-top: 0rem;
+        }
+       
+    }
+
 `;
 
 const Title = styled.h2`

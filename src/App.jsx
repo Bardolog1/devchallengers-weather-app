@@ -18,6 +18,15 @@ const AppCont = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+  /* Responsive Styles */
+  @media (max-width: 480px) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    
+  }
 `;
 
 const App = () => {
@@ -29,14 +38,18 @@ const App = () => {
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${apiKey}`;
   const dailyUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lati}&lon=${longi}&appid=${apiKey}`;
   
+  //fetchs api
   const { data: weatherData } = useFetch(weatherUrl);
   const { data: dailyData} = useFetch(dailyUrl);
  
+  //states open locations and units
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCelsius, setIsCelsius] = useState(true);
  
+  //state search city
   const [searchCity, setSearchCity] = useState('bogota');
  
+  //data  get and format weather
   const temp = weatherData?.main?.temp || 0;
   const descri = weatherData?.weather[0]?.description || "Sin datos";
   const cityApi = weatherData?.name || "Ciudad desconocida";
