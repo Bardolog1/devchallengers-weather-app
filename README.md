@@ -1,6 +1,6 @@
 # Weather App Challenge ☀️🌧️🌦️
 
-![Weather App Screenshot](![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
+![Weather App Screenshot] (![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
 )
 
 This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
