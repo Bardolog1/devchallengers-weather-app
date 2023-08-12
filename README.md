@@ -1,70 +1,92 @@
-# Weather App Challenge
+<!-- Please update value in the {}  -->
 
-![Weather App Screenshot](screenshot.png)
+<h1 align="center">{Your project name}</h1>
 
-This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
+<div align="center">
+   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
+</div>
 
-[Check out the live demo!](https://weatherchallengeapp.netlify.app/)
+<div align="center">
+  <h3>
+    <a href="https://{your-demo-link.your-domain}">
+      Demo
+    </a>
+    <span> | </span>
+    <a href="https://{your-url-to-the-solution}">
+      Solution
+    </a>
+    <span> | </span>
+    <a href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">
+      Challenge
+    </a>
+  </h3>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [Overview](#overview)
+  - [Built With](#built-with)
+- [Features](#features)
+- [How to use](#how-to-use)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+
+<!-- OVERVIEW -->
+
+## Overview
+
+![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+
+Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+
+- Where can I see your demo?
+- What was your experience?
+- What have you learned/improved?
+- Your wisdom? :)
+
+### Built With
+
+<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+
+- [React](https://reactjs.org/)
+- [Vue.js](https://vuejs.org/)
+- [Tailwind](https://tailwindcss.com/)
 
 ## Features
 
-- View weather for the default city, preferably your current location.
-- Search for a specific city.
-- Show weather for today and the next 5 days.
-- See date and location of the weather.
-- Descriptive images for each weather type.
-- Minimum and maximum temperatures for each day.
-- Wind status and direction.
-- Humidity percentage.
-- Visibility indicator.
-- Atmospheric pressure number.
-- Optional: Get weather for your current location.
-- Optional: Convert between Celsius and Fahrenheit.
+<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-## Technologies Used
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) was to build an application to complete the given user stories.
 
-- React
-- JavaScript
-- Custom Hooks
-- Styled Components
-- [Material Design Icons](https://google.github.io/material-design-icons/)
-- [OpenWeatherMap API](https://openweathermap.org/api)
+## How To Use
 
-## Screenshot
+<!-- Example: -->
 
-![Weather App Screenshot](![Overview](image.png))
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-## How to Run Locally
-
-1. Clone the repository: `git clone https://github.com/Bardolog1/devchallengers-weather-app.git`
-2. Navigate to the project directory: `cd devchallengers-weather-app`
-3. Install dependencies: `npm install`
-4. Start the app: `npm start`
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
-   
-## How to Use Bash
 ```bash
-#Clone repository
-$ git clone https://github.com/Bardolog1/devchallengers-weather-app.git
+# Clone this repository
+$ git clone https://github.com/your-user-name/your-project-name
 
-#Change Directory
-$ cd devchallengers-weather-app
-
-#Install dependencies
+# Install dependencies
 $ npm install
 
-#Run the app
-$ npm run start
-
-#Run App test
-$ npm run test
-
-#Build app
-$ npm run build
-
+# Run the app
+$ npm start
 ```
 
-## Attribution
+## Acknowledgements
 
-This project was created by [Libardo Lozano Gambasica](https://github.com/Bardolog1) as part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
+<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
 
+- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
+- [Node.js](https://nodejs.org/)
+- [Marked - a markdown parser](https://github.com/chjj/marked)
+
+## Contact
+
+- Website [your-website.com](https://{your-web-site-link})
+- GitHub [@your-username](https://{github.com/your-usermame})
+- Twitter [@your-twitter](https://{twitter.com/your-username})
