@@ -38,7 +38,7 @@
 
 This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
 
-###[Check out the live demo!](https://weatherchallengeapp.netlify.app/)
+### [Check out the live demo!](https://weatherchallengeapp.netlify.app/)
 
 ## Releases 🚀
 
@@ -76,10 +76,10 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 
 ## How to Run Locally 🏃‍♂️
 
-1. Clone the repository: ###`git clone https://github.com/Bardolog1/devchallengers-weather-app.git`
-2. Navigate to the project directory: ###`cd devchallengers-weather-app`
-3. Install dependencies: ###`npm install`
-4. Start the app: ###`npm start`
+1. Clone the repository: ### `git clone https://github.com/Bardolog1/devchallengers-weather-app.git`
+2. Navigate to the project directory: ### `cd devchallengers-weather-app`
+3. Install dependencies: ### `npm install`
+4. Start the app: ### `npm start`
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
    
 ## How to Use Bash 👨🏼‍💻
