@@ -112,5 +112,5 @@ This project was created by [Libardo Lozano Gambasica](https://github.com/Bardol
 
 ## Contact 💻
 
-- Website [lilog.netlify.app](https://liloga.netlify.app)
+- Website [lilog.netlify.app](https://lilog.netlify.app)
 - GitHub [@Bardolog1](https://github.com/Bardolog1)
