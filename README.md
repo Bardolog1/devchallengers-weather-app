@@ -83,10 +83,12 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 4. Create a file named `.env` within the project's root directory.
 5. Inside the `.env` file, you should declare an environment variable named `REACT_APP_API_KEY`, like this:
    
-      ```bash
-      // .env
-      #Your API key without double quotation marks
+      ```js
+      // Into file .env
+      // Your API key without double quotation marks
+      
       REACT_APP_API_KEY="Your OpenWeather API key goes here"
+      
       ```
       
 7. Start the app:  `npm start`
