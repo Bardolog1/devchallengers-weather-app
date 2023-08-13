@@ -31,6 +31,8 @@ const SearchContainer = styled.div`
   width: 100%;
   height: 20vh;
   position: relative;
+
+ 
 `;
 
 const CloseSection = styled.div`
@@ -40,6 +42,18 @@ const CloseSection = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+   /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    
+  }
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+   // margin-top: 1rem;
+
+  }
 `;
 
 const SearchSection = styled.div`
@@ -49,6 +63,17 @@ const SearchSection = styled.div`
   justify-content: space-evenly;
   align-items: center;
   position: relative;
+
+    /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+   
+  }
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    margin-top: 1rem;
+  }
 `;
 
 const SearchForm = styled.form`
@@ -64,11 +89,11 @@ const CloseButton = styled.div`
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
   line-height: normal;
-  font-size: 20px;
+  font-size: 1rem;
   width: 20px;
   height: 60%;
-  margin-right: 30px;
-  margin-top: 10px;
+  margin-right: 1rem;
+  margin-top: 1rem;
 
   &:hover {
     cursor: pointer;
@@ -87,7 +112,7 @@ const SearchFieldIcon = styled.div`
 
 const SearchIcon = styled.span`
   color: #88869d;
-  font-size: 30px;
+  font-size: 2rem;
   width: 1.3rem;
   height: 1.3rem;
   position: absolute;
@@ -95,6 +120,22 @@ const SearchIcon = styled.span`
   left: 0;
   z-index: 10;
   margin: 0.5rem;
+
+  /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    }
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.1rem;
+    font-size: 1.5rem;
+  }
+
+  
 `;
 
 const SearchField = styled.input`
@@ -103,7 +144,7 @@ const SearchField = styled.input`
   background-color: #1e213a;
   border: none;
   text-align: left;
-  font-size: 16px;
+  font-size: 1rem;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
   position: relative;
@@ -112,6 +153,18 @@ const SearchField = styled.input`
     outline: none;
     border: none;
   }
+
+  /* Responsive Styles */
+  //mobile portrait
+  @media (max-width: 480px) {
+    }
+  
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    height: 80%;
+    font-size: 0.8rem;
+  }
+
 `;
 
 const SearchButton = styled.button`
@@ -121,7 +174,7 @@ const SearchButton = styled.button`
   border: none;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
 
   &:hover {
       background: #1b2285;
@@ -138,6 +191,20 @@ const SearchButton = styled.button`
         color:#6E707A;
     }
 
+    /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+  }
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    width: 30%;
+    height: 50%;
+    font-size: 0.8rem;
+  }
+ 
+
 `;
 
 const ResultsContainer = styled.div`
@@ -147,6 +214,7 @@ const ResultsContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
 `;
 
 const Results = styled.div`
@@ -154,14 +222,12 @@ const Results = styled.div`
   width: 80%;
   height: 100%;
   overflow: scroll;
-  background-color: #1e213a;
 `;
 
 const ListResults = styled.ul`
   width: 100%;
-
   list-style: none;
-  padding: 0;
+  padding: 0 0 2rem 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -175,7 +241,7 @@ const NotFound = styled.span`
     height: 0.8rem;
     color: rgba(255,0,0,0.5);
     font-family: "Raleway", sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 500;
     margin: 0.5rem;
     padding: 2rem;
@@ -184,6 +250,19 @@ const NotFound = styled.span`
     align-items: flex-start;
     position: relative;
     text-transform: capitalize;
+
+     /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    }
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    margin: 0.2rem;
+    font-size: 0.8rem;
+  }
+
 `;
 
 const ListItem = styled.li`
@@ -191,7 +270,7 @@ const ListItem = styled.li`
   height: 0.8rem;
   color: #e7e7eb;
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: normal;
   margin: 0.5rem;
   padding: 2rem;
@@ -219,7 +298,7 @@ const ListItem = styled.li`
     width: 10%;
     height: 25%;
     color: #88869d;
-    font-size: 18px;
+    font-size: 1.2rem;
     position: absolute;
     top: 35.5%;
     right: 0;
@@ -238,6 +317,25 @@ const ListItem = styled.li`
     cursor: pointer;
     border: 1px solid #e7e7eb;
   }
+
+  /* Responsive Styles */
+  //mobile portrait
+  @media (max-width: 480px) {
+    }
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+      margin: 0.2rem;
+      font-size: 0.8rem;
+      padding: 1rem;
+
+      &::after {
+        font-size: 1rem;
+        top: 30%; 
+
+      }
+    }
+
+
 `;
 
 const CitiesGetter = (search, data) => {

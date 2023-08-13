@@ -36,6 +36,12 @@ const Container = styled.div`
         height: 25%;
        
     }
+
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 20%;
+        height: 90%;
+    }
 `;
 
 const TitleDay = styled.h2`
@@ -47,6 +53,12 @@ const TitleDay = styled.h2`
     padding: 0;
     margin-top: 1rem;
     text-align: center;
+
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+       font-size: 0.8rem;
+       margin-top: 0.5rem;
+    }
 `;
 
 const DayImageContainer = styled.div`
@@ -57,12 +69,24 @@ const DayImageContainer = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        height: 45%;
+        width: 90%;
+    }
 `;
 
 const DayImage = styled.img`
     width: 5rem;
     height: 4.6rem;
     background-color: transparent;
+
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 3rem;
+        height: 2.6rem;
+    }
 `;
 
 const DegreeContainer = styled.div`
@@ -86,6 +110,13 @@ const Degree = styled.span`
     &.max{
         color: #A09FB1;
     }
+
+    
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+       font-size: 0.9rem;
+    }
+
 `;
 
 

@@ -14,15 +14,21 @@ const Container = styled.div`
     position: relative;
 
     /* Responsive Styles */
+
+    //mobile portrait
     @media (max-width: 480px) {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-
     }
-    
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 65vw;
+        height: 100vh;
+    }
+
 `;
 
 const ChangeDegreeContainer = styled.div`
@@ -34,8 +40,22 @@ const ChangeDegreeContainer = styled.div`
     position: relative;
 
     /* Responsive Styles */
+
+    //mobile portrait
     @media (max-width: 480px) {
-        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        width: auto;
+    }
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        width: auto;
     }
 `;
 
@@ -46,6 +66,19 @@ const ChangeDegreeButtons = styled.div`
     justify-content: flex-end;
     align-items: center;
     padding-right: 8rem;
+
+    /* Responsive Styles */
+
+     //mobile portrait
+    @media (max-width: 480px) {
+        padding-right: 1rem;
+        padding-bottom: 2.5rem;
+    }
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        padding-right: 1rem;
+        padding-bottom: 2.5rem;
+    }
 
 `;
 
@@ -91,6 +124,29 @@ const ChangeDegreeButton = styled.button`
 
     }
 
+     /* Responsive Styles */
+
+     //mobile portrait
+    @media (max-width: 480px) {
+        width: 4.3rem;
+        height: 4.3rem;
+        font-size: 1.5rem;
+
+        &.active {
+            display: none;
+        }
+    }
+    //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 3.3rem;
+        height: 3.3rem;
+        font-size: 1.5rem;
+
+        &.active {
+            display: none;
+        }
+    }
+
 
 `;
 
@@ -103,6 +159,8 @@ const DailyWeatherContainer = styled.div`
     @media (max-width: 480px) {
         height: 100vh;
     }
+
+    
 `;
 
 const DailyWeatherCardsContainer = styled.div`
@@ -122,6 +180,12 @@ const DailyWeatherCardsContainer = styled.div`
         justify-content: space-evenly;
 
     }
+
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        margin: 0 1rem;
+        padding: 0;
+    }
 `;
 
 const CurrentHighlightsContainer = styled.div`
@@ -130,6 +194,7 @@ const CurrentHighlightsContainer = styled.div`
     position: relative;
 
     /* Responsive Styles */
+    //mobile portrait
     @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
@@ -139,6 +204,8 @@ const CurrentHighlightsContainer = styled.div`
         height: 150vh;
         padding: 0 1rem;
     }
+
+    
     
 
 `;
@@ -165,6 +232,12 @@ const CurrentHighlightsCardsContainer = styled.div`
         margin: 0;
         
     }
+
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        margin: 0 1rem;
+        padding: 0;
+    }
 `;
 
 const CurrentHighlightsTitle = styled.div`
@@ -179,9 +252,16 @@ const CurrentHighlightsTitle = styled.div`
     @media (max-width: 480px) {
         width: 100%;
         align-items: center;
-        margin: 0 2rem;
+        margin: 1rem 2rem;
         padding-left: 2rem;
         height: 8%;
+    }
+
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        margin: 0 1rem;
+        margin-bottom: 1rem;
+        padding: 0;
     }
 `;
 
@@ -196,6 +276,12 @@ const CurrentHighlightsTitleText = styled.span`
     margin-top: 1rem;
     margin-bottom: 1rem;
 
+     //mobile landscape
+     @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
 `;
 
 const FooterContainer = styled.div`
@@ -204,6 +290,11 @@ const FooterContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+       margin-top: 1rem;     
+        height: 5vh;
+    }
 `;
 
 const FooterText = styled.span`
