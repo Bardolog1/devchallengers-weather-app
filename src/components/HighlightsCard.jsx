@@ -18,10 +18,10 @@ const Container = styled.div`
     &.secundary{
         height: 40%;
         margin-top: 2rem;
-
     }
 
     /* Responsive Styles */
+    //mobile portrait
     @media (max-width: 480px) {
         width: 90%;
         height: 80%;
@@ -31,9 +31,18 @@ const Container = styled.div`
             height: 80%;
             margin-top: 0rem;
         }
-       
     }
 
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 35%;
+        height: 50%;
+
+        &.secundary{
+            margin-top: 1rem;
+        }
+    }
 `;
 
 const Title = styled.h2`
@@ -44,6 +53,12 @@ const Title = styled.h2`
     margin: 0;
     padding: 0;
     text-align: center;
+
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        font-size: 0.8rem;
+    }
 `;
 
 const DataContainer = styled.div`
@@ -55,7 +70,7 @@ const DataContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     position: relative;
-    `;
+`;
 
 const Data = styled.div`
     width: 100%;
@@ -67,7 +82,6 @@ const Data = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-
 `;    
 
 const DataValue = styled.h3`
@@ -77,8 +91,12 @@ const DataValue = styled.h3`
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
-    
-    
+
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        font-size: 1.2rem;
+    } 
 `;
 
 const DataUnit = styled.span`
@@ -87,6 +105,14 @@ const DataUnit = styled.span`
     font-weight: 500;
     font-family: 'Raleway', sans-serif;
     margin-top: 2rem;
+
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        font-size: 0.6rem;
+        margin-top: 0;
+        margin-left: 0.5rem;
+    }
 
 `;
 
@@ -99,7 +125,6 @@ const DataVisual = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 `;
 
 const WindVisualContainer = styled.div`
@@ -111,7 +136,6 @@ const WindVisualContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
 `;
 
 const WindVisual = styled.div`
@@ -129,13 +153,25 @@ const WindVisual = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-top: 0;
+    }
 `;
 
 const DirectionIcon = styled.span`
-  color:white;
-  font-size: 1.1rem;
-  transform: rotate(${props => props.deg}deg);
-  transition: transform 0.5s ease-in-out;
+    color:white;
+    font-size: 1.1rem;
+    transform: rotate(${props => props.deg}deg);
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+        transform: rotate(${props => props.deg + 720}deg);
+    }
 `;
 
 const WindDirection = styled.span`
@@ -151,6 +187,13 @@ const WindDirection = styled.span`
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+
+    /* Responsive Styles */
+    //mobile landscape
+    @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+        font-size: 0.8rem;
+        margin-top: 0;
+    }
 `;
 
 
@@ -158,18 +201,16 @@ const HighlightsCard = ({type, title, value, unit, degreeWind}) => {
 
     const getWindDirection = () => {
         const directions = [
-          'N', 'NNE', 'NE', 'ENE',
-          'E', 'ESE', 'SE', 'SSE',
-          'S', 'SSW', 'SW', 'WSW',
-          'W', 'WNW', 'NW', 'NNW'
+            'N', 'NNE', 'NE', 'ENE',
+            'E', 'ESE', 'SE', 'SSE',
+            'S', 'SSW', 'SW', 'WSW',
+            'W', 'WNW', 'NW', 'NNW'
         ];
-      
         const adjustedDegrees = (degreeWind % 360 + 360) % 360;
         const sector = Math.floor((adjustedDegrees - 11.25) / 22.5);
         const windDirection = directions[sector];
-      
         return windDirection;
-      };
+    };
 
 
     const getDataVisual = () => {
@@ -186,17 +227,17 @@ const HighlightsCard = ({type, title, value, unit, degreeWind}) => {
         )
     }
 
-  return (
-    <Container className={type}>
-        <Title>{title}</Title>
-        <DataContainer>
-            <Data>
-                <DataValue>{value}</DataValue><DataUnit>{unit}</DataUnit>
-            </Data>
-        </DataContainer> 
-        {type !== "secundary" && getDataVisual()}
-    </Container>
-  )
+    return (
+        <Container className={type}>
+            <Title>{title}</Title>
+            <DataContainer>
+                <Data>
+                    <DataValue>{value}</DataValue><DataUnit>{unit}</DataUnit>
+                </Data>
+            </DataContainer> 
+            {type !== "secundary" && getDataVisual()}
+        </Container>
+    )
 }
 
 export default HighlightsCard
