@@ -1,18 +1,15 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center"> Weather App Challenge ☀️🌧️🌦️ </H1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
 </div>
-
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://{your-demo-link.your-domain}](https://weatherchallengeapp.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/Bardolog1/devchallengers-weather-app">
       Solution
     </a>
     <span> | </span>
@@ -22,71 +19,98 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
 ## Table of Contents
 
-- [Overview](#overview)
-  - [Built With](#built-with)
-- [Features](#features)
-- [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+- [OverView 🪟](#overview-)
+- [Releases 🚀](#releases-)
+- [Features 🌍🌡️🌬️](#features-️️)
+- [Technologies Used 🛠️🚀](#technologies-used-️)
+- [Screenshots 📸](#screenshots-)
+- [How to Run Locally 🏃‍♂️](#how-to-run-locally-️)
+- [How to Use Bash 👨🏼‍💻](#how-to-use-bash-)
+- [Attribution 🙌](#attribution-)
+- [Contact 💻](#contact-)
 
-<!-- OVERVIEW -->
 
-## Overview
+## OverView 🪟
+![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+This project is part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv). The app displays weather information based on location and provides detailed data for the upcoming days.
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+### [Check out the live demo!](https://weatherchallengeapp.netlify.app/)
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+## Releases 🚀
 
-### Built With
+- [v1.0.0](https://github.com/Bardolog1/devchallengers-weather-app/releases/tag/v1.0.0) - Initial release for desktop usage. Desktop-optimized weather application with detailed weather insights.
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+## Features 🌍🌡️🌬️
 
-- [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- View weather for the default city, preferably your current location. 🏙️
+- Search for a specific city. 🔍
+- Show weather for today and the next 5 days. 📅
+- See date and location of the weather. 🗺️
+- Descriptive images for each weather type. 🌤️🌧️🌩️❄️
+- Minimum and maximum temperatures for each day. 🌡️❄️
+- Wind status and direction. 💨🧭
+- Humidity percentage. 💧
+- Visibility indicator. 👁️
+- Atmospheric pressure number. 🌬️
+- Optional: Get weather for your current location. 📍
+- Optional: Convert between Celsius and Fahrenheit. 🌡️🌡️
 
-## Features
+## Technologies Used 🛠️🚀
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
+- React
+- JavaScript
+- Custom Hooks
+- Styled Components
+- [Material Design Icons](https://google.github.io/material-design-icons/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+- [Create React App](https://github.com/facebook/create-react-app).
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv) was to build an application to complete the given user stories.
+## Screenshots 📸
 
-## How To Use
+![image](https://github.com/Bardolog1/devchallengers-weather-app/assets/64260884/bd94bae2-056a-450f-b045-c837b8a7c69f)
 
-<!-- Example: -->
+
+## How to Run Locally 🏃‍♂️
+
+1. Clone the repository:  `git clone https://github.com/Bardolog1/devchallengers-weather-app.git`
+2. Navigate to the project directory:  `cd devchallengers-weather-app`
+3. Install dependencies:  `npm install`
+4. Start the app:  `npm start`
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+   
+## How to Use Bash 👨🏼‍💻
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+#Clone repository
+$ git clone https://github.com/Bardolog1/devchallengers-weather-app.git
 
-# Install dependencies
+#Change Directory
+$ cd devchallengers-weather-app
+
+#Install dependencies
 $ npm install
 
-# Run the app
-$ npm start
+#Run the app
+$ npm run start
+
+#Run App test
+$ npm run test
+
+#Build app
+$ npm run build
+
 ```
 
-## Acknowledgements
+## Attribution 🙌
 
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
+This project was created by [Libardo Lozano Gambasica](https://github.com/Bardolog1) as part of the "Weather App" challenge by [DevChallenges](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
 
-- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
+## Contact 💻
 
-## Contact
-
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- Website [lilog.netlify.app](https://lilog.netlify.app)
+- GitHub [@Bardolog1](https://github.com/Bardolog1)
