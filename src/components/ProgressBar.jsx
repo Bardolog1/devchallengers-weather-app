@@ -1,19 +1,45 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const ProgressBarContainer = styled.div`
-  margin-top: 1rem;
-  width: 70%;
-  height: 5px;
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
+
+
+const progressAnimation = keyframes`
+  0% {
+    width: 0;
+  }
+  100% {
+    width: ${props => props.progress}%;
+  }
 `;
 
 const ProgressBarFill = styled.div`
   height: 100%;
   width: ${props => props.progress}%;
   background-color: #4caf50;
+  transition: width 3s ease-in-out;
+  `;
+
+const ProgressBarContainer = styled.div`
+  margin-top: 1rem;
+  width: 70%;
+  height: 0.4rem;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:hover > div{
+    cursor: pointer;
+    animation: ${progressAnimation} 3s ease-in-out infinite;
+    transition: width 3s ease-in-out;
+  }
+
+   //mobile landscape
+   @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    height: 6px;
+    & > span {
+      display: none;
+    }
+}
 `;
 
 const Number = styled.span`

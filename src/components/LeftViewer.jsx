@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import LocationSearchView from './LocationSearchView';
-import  {useImgSelector} from '../hooks/useImgSelector';
+import  { useImgSelector } from '../hooks/useImgSelector';
 import { useDateFormatted } from '../hooks/useDateFormatted';
 
 
@@ -14,6 +14,8 @@ const Container = styled.div`
   order: 1;
 
   /* Responsive Styles */
+
+  //mobile portrait
   @media (max-width: 480px) {
     width: 100%;
     height: 100vh;
@@ -22,7 +24,11 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
   }
-
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    width: 35vw;
+    height: 100vh;
+  }
 `;
 
 const CloudsContainer = styled.div`
@@ -65,19 +71,27 @@ const ButtonPlaces = styled.button`
   border: none;
 
   &:hover {
-      background: #55565e;
-      cursor: pointer;
-    }
+    background: #55565e;
+    cursor: pointer;
+  }
 
-    &:active {
-        background: #E7E7EB;
-        color: #585676;
-        cursor: pointer;
-    }
-  
-    &:active span {
-        color:#6E707A;
-    }
+  &:active {
+    background: #E7E7EB;
+    color: #585676;
+    cursor: pointer;
+  }
+
+  &:active span {
+    color:#6E707A;
+  }
+
+  /* Responsive Styles */
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+  width: 6rem;
+  height: 1.5rem;
+  }
 `;
 
 const BtnText = styled.span`
@@ -86,7 +100,13 @@ const BtnText = styled.span`
   font-weight: 500;
   font-size: 0.8rem;
   line-height: normal; 
-  
+
+  /* Responsive Styles */
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    font-size: 0.6rem;
+  }
 `;
 
 const ButtonSearch = styled.div`
@@ -100,22 +120,21 @@ const ButtonSearch = styled.div`
   justify-content: center;
   align-items: center;
 
-    &:hover {
-        background: #55565e;
-        cursor: pointer;
-    }
+  &:hover {
+    background: #55565e;
+    cursor: pointer;
+  }
 
-    &:active {
-        background: #E7E7EB;
-        color: #585676;
-        cursor: pointer;
-    }
-  
-    &:active span {
-        font-size: 1.2rem;
-        color:#6E707A;
-    }
+  &:active {
+    background: #E7E7EB;
+    color: #585676;
+    cursor: pointer;
+  }
 
+  &:active span {
+    font-size: 1.2rem;
+    color:#6E707A;
+  }
 `;
 
 const WeatherImg = styled.img`
@@ -141,6 +160,17 @@ const WeatherDeg = styled.span`
   font-size: 100px;
   font-style: normal;
   font-weight: 500; 
+
+   /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    font-size: 70px;
+  }
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    font-size: 50px;
+  }
 `;
 
 const WeatherDegType = styled.span`
@@ -150,6 +180,17 @@ const WeatherDegType = styled.span`
   font-style: normal;
   font-weight: 500; 
   margin-top:50px;
+
+   /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    font-size: 25px;
+  }
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    font-size: 20px;
+  }
 `;
 
 const WeatherInfo = styled.div`
@@ -168,6 +209,17 @@ const WeatherInfoText = styled.span`
   font-style: normal;
   font-weight: 600; 
   text-transform: capitalize;
+
+   /* Responsive Styles */
+
+  //mobile portrait
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    font-size: 15px;
+  }
 `;
 
 const WeatherExtendInfo = styled.div`
@@ -203,6 +255,13 @@ const WeatherLocation = styled.span`
   height: 6vh;
   text-transform: capitalize;
 
+  /* Responsive Styles */
+
+  //mobile landscape
+  @media screen and (max-width: 932px) and (min-width: 730px) and (orientation: landscape) {
+    font-size: 0.8rem;
+  }
+
 `;
 
 const ButtonSearchIcon = styled.span`
@@ -228,7 +287,6 @@ const LeftViewer =({
   handleCityChange, 
   handleGeoLocation
 }) => {
- 
 
   const [image] = useImgSelector(descri);
   const date = useDateFormatted();
@@ -257,8 +315,8 @@ const LeftViewer =({
       <ButtomsContainer>
         <ButtonPlaces  
           onClick={(e) =>{
-                e.preventDefault();
-                toggleSearchView();
+            e.preventDefault();
+            toggleSearchView();
           }
           }>
           <BtnText >
@@ -266,8 +324,8 @@ const LeftViewer =({
           </BtnText>
         </ButtonPlaces>
         <ButtonSearch onClick={(e)=> {
-          e.preventDefault();
-          getGeoLocation();
+            e.preventDefault();
+            getGeoLocation();
           }}>
           <ButtonSearchIcon className="material-icons">
             gps_fixed
