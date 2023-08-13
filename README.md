@@ -42,6 +42,8 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 ## Releases 🚀
 
 - [v1.0.0](https://github.com/Bardolog1/devchallengers-weather-app/releases/tag/v1.0.0) - Initial release for desktop usage. Desktop-optimized weather application with detailed weather insights.
+- [v1.1.0](https://github.com/Bardolog1/devchallengers-weather-app/releases/tag/v1.1.0) - Mobile-Friendly Update. Enhanced responsive design for seamless weather tracking on devices up to 480px width. Stay informed wherever you go with an optimized layout, 5-day forecast, and weather images that adapt to your screen. Your weather journey, now in the palm of your hand. 🌤️📱
+
 
 ## Features 🌍🌡️🌬️
 
@@ -60,10 +62,10 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 
 ## Technologies Used 🛠️🚀
 
-- React
-- JavaScript
-- Custom Hooks
-- Styled Components
+- [React](https://es.react.dev/)
+- [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+- [Custom Hooks](https://www.w3schools.com/react/react_customhooks.asp)
+- [Styled Components](https://styled-components.com/)
 - [Material Design Icons](https://google.github.io/material-design-icons/)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 - [Create React App](https://github.com/facebook/create-react-app).
@@ -78,8 +80,21 @@ This project is part of the "Weather App" challenge by [DevChallenges](https://d
 1. Clone the repository:  `git clone https://github.com/Bardolog1/devchallengers-weather-app.git`
 2. Navigate to the project directory:  `cd devchallengers-weather-app`
 3. Install dependencies:  `npm install`
-4. Start the app:  `npm start`
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Create a file named `.env` within the project's root directory.
+5. Inside the `.env` file, you should declare an environment variable named `REACT_APP_API_KEY`, like this:
+   
+      ```bash
+      // .env
+      #Your API key without double quotation marks
+      REACT_APP_API_KEY="Your OpenWeather API key goes here"
+      ```
+      
+7. Start the app:  `npm start`
+8. Open [http://localhost:3000](http://localhost:3000) in your browser.
+   
+   
+  
+
    
 ## How to Use Bash 👨🏼‍💻
 
