@@ -30,11 +30,10 @@ export function useDateFormatted(data, order) {
             const cardDay = (today + Number(order))>7? (today + Number(order)) - 7 : (today + Number(order));
             setDateFormatted(order === '1' ? 'Tomorrow' : days[cardDay] + ', ' + day + ' ' + months[Number(month)]);
 
-        }else {
+        } else {
             const dayMonth = new Date().getDate();
             const monthCurrent = new Date().getMonth();
-            setDateFormatted( days[(today-1)<1? 7 : (today-1)] + ', ' + dayMonth + ' ' + months[monthCurrent+1]);
-            
+            setDateFormatted(days[today] + ', ' + dayMonth + ' ' + months[monthCurrent + 1]);
         }
 
     }
